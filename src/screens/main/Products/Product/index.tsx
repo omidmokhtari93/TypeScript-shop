@@ -3,8 +3,8 @@ import styles from './index.module.scss'
 import { IProduct } from '../../../../services/interfaces/IProducts'
 
 export const Product = (props: IProduct): ReactElement => {
-    //console.log(props)
-    return <div className={styles.product}>
+
+    const renderProduct = () => <div className={styles.product}>
         <p>Vehicle : {props.vehicle}</p>
         <p>Manufacturer : {props.manufacturer}</p>
         <p>Model : {props.model}</p>
@@ -15,4 +15,6 @@ export const Product = (props: IProduct): ReactElement => {
             <span>Add To Cart</span>
         </button>
     </div>
+
+    return renderProduct()
 }
