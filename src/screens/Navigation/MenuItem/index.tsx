@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react'
 import { NavLink } from 'react-router-dom'
 import styels from './index.module.scss';
-import { store } from '../../../services/redux/store'
 import { useSelector } from 'react-redux';
-import { rootStore } from '../../../services/interfaces/IStore'
+import { rootState } from '../../../services/redux';
 
 type Props = {
     title: string
@@ -11,7 +10,7 @@ type Props = {
 }
 
 export function MenuItem(props: Props): ReactElement {
-    const state = useSelector((state: rootStore) => state)
+    const state = useSelector((state: rootState) => state)
 
     console.log(state)
 
