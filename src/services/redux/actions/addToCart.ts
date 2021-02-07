@@ -1,15 +1,13 @@
 import { IProduct } from '../../interfaces/IProducts'
-import { ADD_TO_CART } from '../actionTypes'
+import { cartActionTypes } from '../actionTypes'
+import { dispatchAction } from '../store'
 
-export type AddToCartAction = {
-    payload: IProduct
-    type: typeof ADD_TO_CART
-}
 
-export const AddToCart = (product: IProduct): AddToCartAction => {
+
+export const AddToCart = (product: IProduct): dispatchAction => {
     //console.log(product)
     return {
         payload: product,
-        type: ADD_TO_CART
+        type: cartActionTypes.ADD_TO_CART
     }
 }
