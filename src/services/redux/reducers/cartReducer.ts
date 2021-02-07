@@ -1,27 +1,26 @@
-import { rootStore } from '../../interfaces/IStore'
-import { IProduct } from '../../interfaces/IProducts'
-import { AddToCartAction } from '../actions/addToCart'
-import { ADD_TO_CART } from '../actionTypes'
+import { cartActionTypes } from '../actionTypes'
 import { Reducer } from 'redux'
+import { dispatchAction } from '../store'
 
-class cartReducer {
-    color = '';
-    vehicle = '';
-    manufacturer = '';
-    model = '';
-    price = '';
-    type = '';
+export class cartState {
+    color = ''
+    vehicle = ''
+    manufacturer = ''
+    model = ''
+    price = ''
+    type = ''
 }
 
 
-export const CartReducer = (state = new cartReducer(), action: AddToCartAction) => {
-    //console.log(state, action.payload)
+export const CartReducer: Reducer<cartState, dispatchAction> = (
+    state = new cartState(),
+    action: dispatchAction
+) => {
     switch (action.type) {
-        case ADD_TO_CART:
-            return [
-                state,
-                action.payload
-            ]
+        case cartActionTypes.ADD_TO_CART:
+            return {
+                ...action.payload
+            }
         default:
             return state;
     }
