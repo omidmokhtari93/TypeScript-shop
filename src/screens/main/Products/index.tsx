@@ -13,16 +13,18 @@ export const Products = (): ReactElement => {
         dispatch(AddToCart(product));
     }
 
+    const renderProducts = () => [...Array(7)].map(x => <Product
+        handleClick={handleClick}
+        key={faker.random.number()}
+        color={faker.vehicle.color()}
+        manufacturer={faker.vehicle.manufacturer()}
+        model={faker.vehicle.model()}
+        type={faker.vehicle.type()}
+        vehicle={faker.vehicle.vehicle()}
+        price={faker.commerce.price()}
+    />)
+
     return <div style={{ textAlign: 'center' }}>
-        {[...Array(7)].map(x => <Product
-            handleClick={handleClick}
-            key={faker.random.number()}
-            color={faker.vehicle.color()}
-            manufacturer={faker.vehicle.manufacturer()}
-            model={faker.vehicle.model()}
-            type={faker.vehicle.type()}
-            vehicle={faker.vehicle.vehicle()}
-            price={faker.commerce.price()}
-        />)}
+        {renderProducts()}
     </div>
 }
