@@ -11,15 +11,17 @@ export class cartState {
     type = ''
 }
 
-
 export const CartReducer: Reducer<cartState, dispatchAction> = (
     state = new cartState(),
-    action: dispatchAction
+    action
 ) => {
     switch (action.type) {
         case cartActionTypes.ADD_TO_CART:
-            return [action.payload, state]
+            return {
+                ...state,
+                ...action.payload
+            }
         default:
-            return [state];
+            return state
     }
 }

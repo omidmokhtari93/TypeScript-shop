@@ -10,8 +10,8 @@ type Props = {
 }
 
 export function MenuItem(props: Props): ReactElement {
+    
     const state = useSelector((state: rootState) => state)
-
     console.log(state)
 
     return <li>
