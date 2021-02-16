@@ -1,12 +1,14 @@
 import React, { ReactElement } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
 import "./App.css";
 import AppContainer from "./screens/AppContainer";
-function App() {
+import browserHistory from "./services/browserHistory";
+
+function App(): ReactElement {
     return (
-        <BrowserRouter>
+        <ConnectedRouter history={browserHistory}>
             <AppContainer />
-        </BrowserRouter>
+        </ConnectedRouter>
     );
 }
 
